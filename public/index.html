@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forge Analytics Demo</title>
+<link rel="stylesheet" href="/styles.css">
+
+<!-- Google Analytics (GA4) global site tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20V51SLEJJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-20V51SLEJJ');
+</script>
+</head>
+<body>
+  <nav>
+    <a href="/" class="brand">Forge Analytics Demo</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Puzzle #21: Google Analytics, Wired In For Real</h1>
+      <p>This is a small demo site built to prove a real GA4 (gtag.js) tag is installed and
+         registering real events, not just pageviews.</p>
+      <button id="cta-btn" class="btn">View Pricing</button>
+      <p id="cta-status" class="status"></p>
+    </section>
+
+    <section class="info">
+      <h2>What's being tracked</h2>
+      <ul>
+        <li>Default pageview, automatically, on every page via <code>gtag('config', ...)</code></li>
+        <li>A custom <code>cta_click</code> event when the button above is clicked</li>
+        <li>A custom <code>generate_lead</code> event when the contact form is submitted</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>GA4 Measurement ID: G-20V51SLEJJ (AiOlogy.live property, reused for this demo &mdash; see README)</p>
+  </footer>
+
+  <script>
+    document.getElementById('cta-btn').addEventListener('click', function () {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: 'homepage_view_pricing_button',
+      });
+      document.getElementById('cta-status').textContent =
+        'cta_click event sent to GA4 (check Realtime report).';
+    });
+  </script>
+</body>
+</html>

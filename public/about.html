@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Forge Analytics Demo</title>
+<link rel="stylesheet" href="/styles.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20V51SLEJJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-20V51SLEJJ');
+</script>
+</head>
+<body>
+  <nav>
+    <a href="/" class="brand">Forge Analytics Demo</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="info">
+      <h1>About This Demo</h1>
+      <p>Built for puzzle #21 in the "automate-me-this-puzzle" series: connect Google Analytics
+         to a website. The site is three static pages deployed on Cloudflare Workers. Each page
+         loads the real GA4 gtag.js snippet, so visiting any page here fires a real pageview
+         event against a live GA4 property.</p>
+      <p>Navigate between pages to generate pageview events, or go to the
+         <a href="/contact.html">Contact page</a> to fire a custom lead-generation event.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>GA4 Measurement ID: G-20V51SLEJJ (AiOlogy.live property, reused for this demo &mdash; see README)</p>
+  </footer>
+</body>
+</html>

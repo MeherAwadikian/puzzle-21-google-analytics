@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Forge Analytics Demo</title>
+<link rel="stylesheet" href="/styles.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20V51SLEJJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-20V51SLEJJ');
+</script>
+</head>
+<body>
+  <nav>
+    <a href="/" class="brand">Forge Analytics Demo</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="info">
+      <h1>Contact Us</h1>
+      <p>Submitting this form fires a real <code>generate_lead</code> GA4 event (no data is sent
+         anywhere else &mdash; this demo doesn't have a backend).</p>
+      <form id="contact-form">
+        <label>Name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Message <textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p id="form-status" class="status"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>GA4 Measurement ID: G-20V51SLEJJ (AiOlogy.live property, reused for this demo &mdash; see README)</p>
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      gtag('event', 'generate_lead', {
+        event_category: 'engagement',
+        event_label: 'contact_form_submission',
+      });
+      document.getElementById('form-status').textContent =
+        'generate_lead event sent to GA4 (check Realtime report). No data is actually stored anywhere.';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
